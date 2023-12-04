@@ -1,4 +1,5 @@
 import React from "react";
+import { Image, Text, TouchableHighlight } from "react-native";
 
 import {
   Container,
@@ -8,7 +9,6 @@ import {
   ButtonText,
   FooterText,
 } from "./styles";
-import { Image, Text, TouchableHighlight } from "react-native";
 
 const Login: React.FC = () => {
   return (

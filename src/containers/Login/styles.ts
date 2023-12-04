@@ -3,9 +3,12 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   display: flex;
+  height: 100%;
   align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 0 20px;
+  background-color: #000;
 `;
 
 export const Title = styled.Text`

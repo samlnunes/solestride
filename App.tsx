@@ -1,19 +1,38 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Login } from "./containers";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { Login, Supplier, Suppliers } from "./src/containers";
+import Toast from "react-native-toast-message";
 
 export default function App() {
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Login />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Fornecedores"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#E8AC71",
+          },
+          headerBackTitle: " ",
+        }}
+      >
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Fornecedores" component={Suppliers} />
+        <Stack.Screen
+          name="Fornecedor"
+          component={Supplier}
+          options={({ route }) => ({
+            title: route.params.name,
+          })}
+        />
+      </Stack.Navigator>
+      
+      <Toast position="top" topOffset={50} />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
